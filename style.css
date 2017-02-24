@@ -1,4 +1,4 @@
-.board {
+#board {
 	display:inline-block;
 	height: 50%;
 	width: 50%;
@@ -51,6 +51,8 @@ footer {
 	display:block;
 	text-align:center;
 	background-color:#808080;
+	margin-bottom: 50px;
+	clear:both;
 }
 
 .name {

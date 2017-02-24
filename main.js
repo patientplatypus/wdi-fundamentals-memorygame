@@ -7,8 +7,7 @@ var cardsinplay = [];
 
 
 function createCards() {
-	var nextbook = document.getElementById('game-board');
-
+	var nextbook = document.getElementById('board');
 	for (var i=0;i<cards.length;i++){
 		var newCard = document.createElement("div");
 		newCard.setAttribute("class", "card");
@@ -19,25 +18,33 @@ function createCards() {
 
 createCards();
 
+
+
+
+
+function alertboxwinner(){
+	alert("You are winner!");
+}
+
+function alertboxloser(){
+	alert("Try again bozo!");
+}
+
 function ismatch(){
 
 	if (cardsinplay[0] === cardsinplay[1]){
 
-		alert("You are winner!");
+ 		setTimeout(function(){ alert("You are a winner!"); }, 500);
 
-		for(var i=0;i<currentcards.length;i++){
-			currentcards[i].innerHTML = '';
-		}
+ 		return true;
 
 	} 
 
 	if (cardsinplay[0] != cardsinplay[1]){
 
-		alert("Try again bozo!");
+ 		setTimeout(function(){ alert("Try again bozo!"); }, 500);
 
-		for(var i=0;i<currentcards.length;i++){
-			currentcards[i].innerHTML = '';
-		}
+ 		return true;
 
 	}
 
@@ -53,7 +60,12 @@ function isTwoCards(event){
 	}
 
 	if (cardsinplay.length === 2){
-		ismatch();
+		var isitamach = ismatch();
+		if (isitamach === true){
+			setTimeout(function(){for(var i=0;i<currentcards.length;i++){
+				currentcards[i].innerHTML = '';
+			}},500)
+		}
 		cardsinplay = [];	
 	}
 
